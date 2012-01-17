@@ -1,0 +1,14 @@
+ <b>Logged-in Users</b>
+    <% if @other_users.length > 0 %>
+      <ul>
+        <% @other_users.each do |other_user| %>
+          <li> <%= other_user.name %>
+            <% if @user.not_followee?(other_user) %>
+                <%= link_to "Follow", user_followings_path(@user, :followee_id => other_user), :method => :post %>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    <% else %>
+        <p> <i> You are the only user logged in.</i> </p>
+    <% end %>

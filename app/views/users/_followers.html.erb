@@ -1,0 +1,12 @@
+
+     <b>Your followers</b>
+     <% @followers = @user.followers %>
+     <% if @followers.length > 0 %>
+       <ul>
+        <% @user.followers.each do |follower| %>
+          <li> <%= follower.name %>  </li>
+        <% end %>
+       </ul>
+    <% else %>
+     <p> <i> Currently you don't have any followers.. </i> </p>
+    <% end %>

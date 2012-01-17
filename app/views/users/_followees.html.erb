@@ -1,0 +1,11 @@
+<b>Your followees</b>
+  <% @followings = @user.followings %>
+  <% if @followings.length > 0 %>
+     <ul>
+      <% @followings.each do |following| %>
+        <li> <%= following.followee.name %> <%= link_to "Unfollow", user_following_path(@user, following), :method => :delete, :confirm => "Are you sure?" %> </li>
+      <% end %>
+       </ul>
+  <% else %>
+    <p> <i> Currently you don't follow any user.. </i> </p>
+  <% end %>
